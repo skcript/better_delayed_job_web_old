@@ -15,7 +15,7 @@ Some features:
 
 The interface:
 
-![Screen shot](http://dl.dropbox.com/u/1506097/Screenshots/delayed_job_web_1.png)
+![Screen shot](http://i.imgur.com/eji1Z8s.png)
 
 A beautiful Bootstrap based responsive interface.
 

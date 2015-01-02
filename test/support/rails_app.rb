@@ -7,6 +7,6 @@ class RailsApp < Rails::Application
   config.secret_key_base = "foo"
 
   routes.draw do
-    match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+    match "/delayed_job" => BetterDelayedJobWeb, :anchor => false, via: [:get, :post]
   end
 end
