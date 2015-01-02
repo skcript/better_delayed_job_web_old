@@ -4,4 +4,4 @@
 # Rack::Session will blow up because ActionDispatch::Request::Session does not
 # implement #each.
 
-DelayedJobWeb.disable :sessions
+BetterDelayedJobWeb.disable :sessions
