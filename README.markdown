@@ -1,5 +1,6 @@
-delayed_job_web
+better_delayed_job_web
 ===============
+[![Build Status](https://travis-ci.org/skcript/better_delayed_job_web.svg?branch=master)](https://travis-ci.org/skcript/better_delayed_job_web)
 
 A [resque][0] inspired (read: stolen) interface for delayed_job.
 This gem is written to work with rails 3 and 4 applications using
