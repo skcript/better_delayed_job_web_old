@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.email       = "bello@skcript.com"
   gem.homepage    = "https://github.com/skcript/better_delayed_job_web"
   gem.summary     = "Web better interface for delayed_job"
-  gem.description = gem.summary
+  gem.description = "Probably the best interface for Delayed Job"
   gem.license     = "MIT"
 
   gem.executables = ["delayed_job_web"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
     "LICENSE.txt",
     "README.markdown",
     "Rakefile",
-    "delayed_job_web.gemspec"
+    "better_delayed_job_web.gemspec"
   ] + %x{ git ls-files }.split("\n").select { |d| d =~ %r{^(lib|test|bin)} }
 
   gem.extra_rdoc_files = [
