@@ -1,10 +1,10 @@
 Gem::Specification.new do |gem|
-  gem.name        = "delayed_job_web"
-  gem.version     = "1.3.0.8"
-  gem.author      = "Erick Schmitt"
-  gem.email       = "ejschmitt@gmail.com"
-  gem.homepage    = "https://github.com/ejschmitt/delayed_job_web"
-  gem.summary     = "Web interface for delayed_job inspired by resque"
+  gem.name        = "better_delayed_job_web"
+  gem.version     = "1.3.1"
+  gem.author      = "Skcript"
+  gem.email       = "bello@skcript.com"
+  gem.homepage    = "https://github.com/skcript/better_delayed_job_web"
+  gem.summary     = "Web better interface for delayed_job"
   gem.description = gem.summary
   gem.license     = "MIT"
 

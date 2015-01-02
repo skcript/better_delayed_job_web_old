@@ -1,4 +1,7 @@
-<h1>Failed Jobs</h1>
+<h2 class="sub-header">Failed Jobs</h2>
+<p class="text-info">
+  Here are the list of jobs that failed during execution.
+</p>
 <% if @jobs.any? %>
   <form action="<%= u('failed/clear') %>" method="POST">
     <%= csrf_token_tag %>
@@ -9,7 +12,7 @@
     <input type="submit" value="Retry Failed Jobs"></input>
   </form>
 <% end %>
-<p class="sub">
+<p class="text-info">
   The list below contains all jobs that have a last_error message set.
 </p>
 <p class="sub">

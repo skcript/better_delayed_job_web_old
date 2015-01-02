@@ -1,4 +1,7 @@
-<h1>Pending</h1>
+<h2 class="sub-header">Pending</h2>
+<p class="text-info">
+  The list below shows an overview of the jobs that are pending.
+</p>
 <% if @jobs.any? %>
   <form action="<%= u('requeue/all') %>" method="POST">
     <%= csrf_token_tag %>
