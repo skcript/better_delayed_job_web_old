@@ -3,7 +3,7 @@ require 'active_support'
 require 'active_record'
 require 'delayed_job'
 
-class DelayedJobWeb < Sinatra::Base
+class BetterDelayedJobWeb < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :static, true
   set :public_folder, File.expand_path('../public', __FILE__)

@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name        = "better_delayed_job_web"
-  gem.version     = "1.3.2"
+  gem.version     = "1.3.3"
   gem.author      = "Skcript"
   gem.email       = "bello@skcript.com"
   gem.homepage    = "https://github.com/skcript/better_delayed_job_web"
@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.description = "Probably the best interface for Delayed Job"
   gem.license     = "MIT"
 
-  gem.executables = ["delayed_job_web"]
+  gem.executables = ["better_delayed_job_web"]
 
   gem.files = [
     "Gemfile",
