@@ -1,54 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <title>Better Delayed job web by skcript</title>
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Delayed job web by ejschmitt</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/ejschmitt/delayed_job_web">Fork Me on GitHub</a>
-    <div class="shell">
-
+    <div class="wrapper">
       <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Delayed job web</h1>
-            <h2>Resque like web interface for delayed job</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+        <h1>Better Delayed job web</h1>
+        <p>Beautiful Secure Web Dashboard for delayed_job</p>
+
+        <p class="view"><a href="https://github.com/skcript/better_delayed_job_web">View the Project on GitHub <small>skcript/better_delayed_job_web</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/skcript/better_delayed_job_web/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/skcript/better_delayed_job_web/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/skcript/better_delayed_job_web">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
+      <section>
+        <h1>
+<a id="better_delayed_job_web" class="anchor" href="#better_delayed_job_web" aria-hidden="true"><span class="octicon octicon-link"></span></a>better_delayed_job_web</h1>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/ejschmitt/delayed_job_web/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/ejschmitt/delayed_job_web/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+<p><a href="https://travis-ci.org/skcript/better_delayed_job_web"><img src="https://travis-ci.org/skcript/better_delayed_job_web.svg?branch=master" alt="Build Status"></a></p>
 
-      <span class="banner-fix"></span>
-
-      <section id="main_content">
-        <h1>delayed_job_web</h1>
-
-<p>A <a href="https://github.com/defunkt/resque">resque</a> inspired (read: stolen) interface for delayed_job.
-This gem is written to work with rails 3 applications using
-activerecord.</p>
+<p>We wanted this for ourselves, so we forked it and made it better. A neat and tidy dashboard for delayed_job, which gives you a overview about the status of the queues.
+Tested and works with Rails 3 and above.</p>
 
 <p>Some features:</p>
 
@@ -57,70 +43,110 @@ activerecord.</p>
 <li>Queue any single job. or all pending jobs, to run immediately.</li>
 <li>Remove a failed job, or easily remove all failed jobs.</li>
 <li>Watch delayed_job operation with live ajax polling.</li>
-</ul><h2>Quick Start For Rails 3 Applications</h2>
+<li>Filter delayed_jobs by queue name</li>
+</ul>
+
+<p>The interface:</p>
+
+<p><img src="http://i.imgur.com/eji1Z8s.png" alt="Screen shot"></p>
+
+<p>A beautiful Bootstrap based responsive interface.</p>
+
+<h2>
+<a id="quick-start-for-rails-3-and-4-applications" class="anchor" href="#quick-start-for-rails-3-and-4-applications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start For Rails 3 and 4 Applications</h2>
 
 <p>Add the dependency to your Gemfile</p>
 
-<div class="highlight">
-<pre><span class="n">gem</span> <span class="s2">"delayed_job_web"</span>
-</pre>
-</div>
-
+<div class="highlight highlight-ruby"><pre><span class="pl-k">gem</span> <span class="pl-s1"><span class="pl-pds">"</span>delayed_job_web<span class="pl-pds">"</span></span></pre></div>
 
 <p>Install it...</p>
 
-<div class="highlight">
-<pre><span class="n">bundle</span>
-</pre>
-</div>
+<div class="highlight highlight-ruby"><pre>bundle</pre></div>
 
+<p>Add the following route to your application for accessing the interface,
+and retrying failed jobs.</p>
 
-<p>Add a route to your application for accessing the interface</p>
-
-<div class="highlight">
-<pre><span class="n">match</span> <span class="s2">"/delayed_job"</span> <span class="o">=&gt;</span> <span class="no">DelayedJobWeb</span><span class="p">,</span> <span class="ss">:anchor</span> <span class="o">=&gt;</span> <span class="kp">false</span>
-</pre>
-</div>
-
+<div class="highlight highlight-ruby"><pre>match <span class="pl-s1"><span class="pl-pds">"</span>/delayed_job<span class="pl-pds">"</span></span> =&gt; <span class="pl-vo">DelayedJobWeb</span>, <span class="pl-c1">:anchor</span> =&gt; <span class="pl-c1">false</span>, <span class="pl-c1">via:</span> [<span class="pl-c1">:get</span>, <span class="pl-c1">:post</span>]</pre></div>
 
 <p>You probably want to password protect the interface, an easy way is to add something like this your config.ru file</p>
 
-<div class="highlight">
-<pre><span class="k">if</span> <span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">production?</span>
-  <span class="no">DelayedJobWeb</span><span class="o">.</span><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Auth</span><span class="o">::</span><span class="no">Basic</span> <span class="k">do</span> <span class="o">|</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">|</span>
-    <span class="n">username</span> <span class="o">==</span> <span class="s1">'username'</span>
-    <span class="n">password</span> <span class="o">==</span> <span class="s1">'password'</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre>
-</div>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">if</span> <span class="pl-s3">Rails</span>.env.production?
+  <span class="pl-s3">DelayedJobWeb</span>.use <span class="pl-s3">Rack</span>::<span class="pl-s3">Auth</span>::<span class="pl-vo">Basic</span> <span class="pl-k">do </span>|<span class="pl-vo">username</span>, <span class="pl-vo">password</span>|
+    username <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span> <span class="pl-k">&amp;&amp;</span> password <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>
+  <span class="pl-k">end</span>
+<span class="pl-k">end</span></pre></div>
 
+<p><code>delayed_job_web</code> runs as a Sinatra application within the rails application. Visit it at <code>/delayed_job</code>.</p>
 
-<h2>The Interface - Yea, a ripoff of resque-web</h2>
+<h2>
+<a id="serving-static-assets" class="anchor" href="#serving-static-assets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serving static assets</h2>
 
-<p><img src="http://dl.dropbox.com/u/1506097/Screenshots/delayed_job_web_1.png" alt="Screen shot"></p>
+<p>If you mount the app on another route, you may encounter the CSS not working anymore. To work around this you can leverage a special HTTP header. Install it, activate it and configure it -- see below.</p>
 
-<p><img src="http://dl.dropbox.com/u/1506097/Screenshots/delayed_job_web_2.png" alt="Screen shot"></p>
+<h3>
+<a id="apache" class="anchor" href="#apache" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apache</h3>
 
-<h2>Author</h2>
+<pre><code>XSendFile On
+XSendFilePath /path/to/shared/bundle
+</code></pre>
 
-<p>Erick Schmitt - <a href="http://twitter.com/ejschmitt">@ejschmitt</a></p>
+<p><a href="https://tn123.org/mod_xsendfile/"><code>XSendFilePath</code></a> white-lists a directory from which static files are allowed to be served. This should be at least the path to where delayed_job_web is installed.</p>
+
+<p>Using Rails you'll have to set <code>config.action_dispatch.x_sendfile_header = "X-Sendfile"</code>.</p>
+
+<h3>
+<a id="nginx" class="anchor" href="#nginx" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nginx</h3>
+
+<p>Nginx uses an equivalent that's called <code>X-Accel-Redirect</code>, further instructions can be found <a href="http://wiki.nginx.org/XSendfile">in their wiki</a>.</p>
+
+<p>Rails' will need to be configured to <code>config.action_dispatch.x_sendfile_header = "X-Accel-Redirect"</code>.</p>
+
+<h3>
+<a id="lighttpd" class="anchor" href="#lighttpd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lighttpd</h3>
+
+<p>Lighty is more <code>X-Sendfile</code>, like <a href="http://redmine.lighttpd.net/projects/1/wiki/X-LIGHTTPD-send-file">outlined</a> in their wiki.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork</li>
+<li>Hack</li>
+<li><code>rake test</code></li>
+<li>Send a pull request</li>
+</ol>
+
+<h2>
+<a id="releasing-a-new-version" class="anchor" href="#releasing-a-new-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Releasing a new version</h2>
+
+<ol>
+<li>Update the version in <code>better_delayed_job_web.gemspec</code>
+</li>
+<li>
+<p><code>git commit better_delayed_job_web.gemspec</code> with the following message format:</p>
+
+<pre><code>Version x.x.x
+
+Changelog:
+* Some new feature
+* Some new bug fix
+</code></pre>
+</li>
+<li><code>rake release</code></li>
+</ol>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Erick Schmitt - <a href="http://twitter.com/ejschmitt">@ejschmitt</a>
+Karthik K - <a href="http://twitter.com/imkarthikk">@imkarthikk</a></p>
       </section>
-
       <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/ejschmitt">ejschmitt</a> can be found on <a href="https://github.com/ejschmitt/delayed_job_web">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+        <p>This project is maintained by <a href="https://github.com/skcript">skcript</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
-
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
