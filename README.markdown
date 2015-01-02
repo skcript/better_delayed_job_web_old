@@ -2,9 +2,8 @@ better_delayed_job_web
 ===============
 [![Build Status](https://travis-ci.org/skcript/better_delayed_job_web.svg?branch=master)](https://travis-ci.org/skcript/better_delayed_job_web)
 
-A [resque][0] inspired (read: stolen) interface for delayed_job.
-This gem is written to work with rails 3 and 4 applications using
-activerecord.
+We wanted this for ourselves, so we forked it and made it better. A neat and tidy dashboard for delayed_job, which gives you a overview about the status of the queues.
+Tested and works with Rails 3 and above.
 
 Some features:
 
@@ -14,10 +13,11 @@ Some features:
 * Watch delayed_job operation with live ajax polling.
 * Filter delayed_jobs by queue name
 
-The interface (yea, a ripoff of resque-web):
+The interface:
 
 ![Screen shot](http://dl.dropbox.com/u/1506097/Screenshots/delayed_job_web_1.png)
 
+A beautiful Bootstrap based responsive interface.
 
 Quick Start For Rails 3 and 4 Applications
 ------------------------------------
@@ -89,8 +89,8 @@ Contributing
 Releasing a new version
 -----------------------
 
-1. Update the version in `delayed_job_web.gemspec`
-2. `git commit delayed_job_web.gemspec` with the following message format:
+1. Update the version in `better_delayed_job_web.gemspec`
+2. `git commit better_delayed_job_web.gemspec` with the following message format:
 
         Version x.x.x
 
@@ -100,11 +100,10 @@ Releasing a new version
 3. `rake release`
 
 
-Author
+Credits
 ------
-
 Erick Schmitt - [@ejschmitt][1]
+Karthik K - [@imkarthikk][2]
 
-
-[0]: https://github.com/defunkt/resque
 [1]: http://twitter.com/ejschmitt
+[2]: http://twitter.com/imkarthikk
