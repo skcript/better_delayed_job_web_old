@@ -13,7 +13,7 @@
     <td class="status info">
       <a href="<%= u('/enqueued') %>">Enqueued Jobs</a>
     </td>
-    <td>
+    <td class="status info">
       <%= delayed_jobs(:enqueued, @queues).count %>
     </td>
   </tr>
@@ -21,7 +21,7 @@
     <td class="status success">
       <a href="<%= u('/working') %>">Working Jobs</a>
     </td>
-    <td>
+    <td class="status success">
       <%= delayed_jobs(:working, @queues).count %>
     </td>
   </tr>
@@ -29,7 +29,7 @@
     <td class="status warning">
       <a href="<%= u('/pending') %>">Pending Jobs</a>
     </td>
-    <td>
+    <td class="status warning">
       <%= delayed_jobs(:pending, @queues).count %>
     </td>
   </tr>
@@ -37,7 +37,7 @@
     <td class="status danger">
       <a href="<%= u('/failed') %>">Failed Jobs</a>
     </td>
-    <td>
+    <td class="status danger">
       <%= delayed_jobs(:failed, @queues).count %>
     </td>
   </tr>
