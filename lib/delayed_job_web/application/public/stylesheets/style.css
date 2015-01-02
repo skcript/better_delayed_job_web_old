@@ -1,3 +1,61 @@
+#main table a {
+	color: #000;
+	text-decoration: none;
+}
+
+#main table a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+#main table th {
+	font-weight: bold;
+}
+
+/* Sticky footer styles
+      -------------------------------------------------- */
+
+  html,
+  body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+  }
+
+  /* Wrapper for page content to push down footer */
+  #wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+  }
+
+  /* Set the fixed height of the footer here */
+  #push,
+  #footer {
+    height: 60px;
+  }
+  #footer {
+    background-color: #f5f5f5;
+  }
+
+  /* Lastly, apply responsive CSS fixes as necessary */
+  @media (max-width: 767px) {
+    #footer {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  .container .credit {
+    margin: 20px 0;
+  }
+
+  code {
+    font-size: 80%;
+  }
 /*html { background:#efefef; font-family:Arial, Verdana, sans-serif; font-size:13px; }
 body { padding:0; margin:0; }
 pre { font-family:Courier New; line-height:1.4em; }

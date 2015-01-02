@@ -8,35 +8,51 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css" />
   </head>
   <body>
-    <div class="header">
-      <ul class="nav">
-        <% tabs.each do |tab| %>
-          <li class="<%= request.path_info == tab[:path] ? 'current' : '' %>">
-            <a class="tab" href="<%= u(tab[:path]) %>">
-              <%=h tab[:name] %>
-            </a>
-          </li>
-        <% end %>
-        <li>
-          <form method="get" class="header-queues" action="" style="display:inline; width: 100%;">
-            <input name="queues" type="text" value="<%=h @queues.join(", ") %>" style="width: 300px;" placeholder="Filter jobs by queue name (e.g. queue1, queue2)" />
-            <input type="submit" value="Filter" />
-          </form>
-        </li>
-      </ul>
-    </div>
-    <div id="main">
+  <div id="wrap">
+<div class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Jobs</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-inverse-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="<%= u('/overview') %>">Overview</a></li>
+      <li><a href="<%= u('/enqueued') %>">Enqueued</a></li>
+      <li><a href="<%= u('/working') %>">Working</a></li>
+      <li><a href="<%= u('/pending') %>">Pending</a></li>
+      <li><a href="<%= u('/failed') %>">Failed</a></li>
+    </ul>
+    <form class="navbar-form navbar-left">
+      <input name="queues" type="text" value="<%=h @queues.join(", ") %>" style="width: 300px;" class="form-control col-lg-8" placeholder="Search for queues" />
+    </form>
+  </div>
+</div>
+    <div class="container" id="main">
+        <div class="row">
       <%= yield %>
+        </div>
     </div>
-    <div id="footer">
+    <div id="push"></div>
+    </div>
+    <!-- <div id="footer">
       <p>
         Powered by
         <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a>
         &amp;
         <a href="https://github.com/ejschmitt/delayed_job_web">delayed_job_web</a>
       </p>
+    </div> -->
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Powered by <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> and <a href="https://github.com/ejschmitt/delayed_job_web">delayed_job_web</a>.</p>
+      </div>
     </div>
-    <script src="<%= u("javascripts/jquery-1.7.1.min.js") %>" type="text/javascript"></script>
+
+    <script src="<%= u("javascripts/jquery-1.11.2.min.js") %>" type="text/javascript"></script>
     <script src="<%= u("javascripts/jquery.relatize_date.js") %>" type="text/javascript"></script>
     <script src="<%= u("javascripts/application.js") %>" type="text/javascript"></script>
     <script src="<%= u("javascripts/bootstrap.min.js") %>" type="text/javascript"></script>

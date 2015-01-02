@@ -1,7 +1,7 @@
-<div class="page-header">
-<legend>Overview</legend>
-</div>
-<p>
+<div class="col-xs-6">
+  <h2 class="sub-header">Overview</h2>
+  <div class="table-responsive">
+<p class="text-info">
   The list below shows an overview of the jobs in the delayed_job queue.
 </p>
 <table class="overview table table-striped table-hover">
@@ -10,10 +10,10 @@
     <th>Count</th>
   </tr>
   <tr>
-    <td class="status info">
+    <td class="status">
       <a href="<%= u('/enqueued') %>">Enqueued Jobs</a>
     </td>
-    <td class="status info">
+    <td class="status">
       <%= delayed_jobs(:enqueued, @queues).count %>
     </td>
   </tr>
@@ -42,4 +42,49 @@
     </td>
   </tr>
 </table>
-<%= poll %>
+</div>
+</div>
+<!-- Stats -->
+<div class="col-xs-6">
+  <h2 class="sub-header">Statistics</h2>
+  <div class="table-responsive">
+  <p class="text-info">
+  The list below shows an overview of the jobs in the delayed_job queue.
+</p>
+<table class="stats table table-striped table-hover">
+  <tr>
+    <th class="status">
+      Environment
+    </th>
+    <th>
+      <%=h Sinatra::Application.environment.to_s %>
+    </th>
+  </tr>
+  <tr>
+    <th class="status">
+      Total Failed
+    </th>
+    <th>
+      <%= delayed_jobs(:failed, @queues).count %>
+    </th>
+  </tr>
+  <tr>
+    <th class="status">
+      Total Pending
+    </th>
+    <th>
+      <%= delayed_jobs(:pending, @queues).count %>
+    </th>
+  </tr>
+  <tr>
+    <th class="status">
+      Currently Working
+    </th>
+    <th>
+      <%= delayed_jobs(:working, @queues).count %>
+    </th>
+  </tr>
+</table>
+  </div>
+  <%= poll %>
+  </div>
