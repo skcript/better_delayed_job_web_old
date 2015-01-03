@@ -60,3 +60,7 @@
 .job-actions {
   text-align: center;
 }
+
+.more-job-actions {
+  float: right;
+}

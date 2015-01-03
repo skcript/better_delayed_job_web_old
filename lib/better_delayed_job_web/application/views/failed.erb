@@ -1,5 +1,5 @@
 <h2 class="sub-header">Failed Jobs</h2>
-<p class="text-info">
+<p class="lead">
   Here are the list of jobs that failed during execution.
 </p>
 <% if @jobs.any? %>
@@ -16,9 +16,9 @@
   </form>
   </div>
 <% end %>
-<p class="text-info">
+<!-- <p class="text-info">
   The list below contains all jobs that have a last_error message set.
-</p>
+</p> -->
 <p class="sub">
   <%= "Showing #{start} to #{start + per_page} of #{@all_jobs.count} failed jobs." %>
 </p>

@@ -1,35 +1,78 @@
 <li class="list-group-item">
+<!-- New Table Interface -->
+<div class="controls">
+<div class="col-md-4 job-actions">
+  <form action="<%= u("requeue/#{job.id}") %>" method="post"><%= csrf_token_tag %>
+  <button type="submit" value="Retry" class="btn btn-primary">Retry</button>
+  </form>
+  </div>
+  <div class="col-md-4 job-actions">
+  <form action="<%= u("remove/#{job.id}") %>" method="post"><%= csrf_token_tag %>
+  <button type="submit" value="Remove" class="btn btn-danger">Remove</button>
+  </form>
+  </div>
+  <div class="col-md-4 job-actions">
+  <form action="<%= u("reload/#{job.id}") %>" method="post"><%= csrf_token_tag %>
+  <button type="submit" value="Reload" class="btn btn-default">Reload</button>
+  </form>
+  </div>
+</div>
+<table class="overview table table-striped table-hover">
+  <tbody><tr>
+    <th>Info</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td class="status">
+      ID
+    </td>
+    <td class="status">
+      <a href="#<%= job.id %>"><%=h job.id %></a>
+    </td>
+  </tr>
+  <tr>
+    <td class="status success">
+      Priority
+    </td>
+    <td class="status success">
+      <%=h job.priority %>
+    </td>
+  </tr>
+  <tr>
+    <td class="status warning">
+      Attempts
+    </td>
+    <td class="status warning">
+      <%=h job.attempts %>
+    </td>
+  </tr>
+  <% if job.respond_to?(:queue) && job.queue %>
+  <tr class="failure">
+    <td class="status danger">
+      <a href="/delayed_job/failed">Queue</a>
+    </td>
+    <td class="status danger">
+      <%=h job.queue %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+<!-- End of New Table Interface -->
+
   <dl>
-    <dt>ID</dt>
-    <dd>
+    <!-- <dt>ID</dt> -->
+<!--     <dd class="more-job-actions">
       <a name="<%= job.id %>"></a>
       <a href="#<%= job.id %>"><%=h job.id %></a>
-      <div class="controls">
-      <div class="col-md-4 job-actions">
-        <form action="<%= u("requeue/#{job.id}") %>" method="post"><%= csrf_token_tag %>
-        <button type="submit" value="Retry" class="btn btn-primary">Retry</button>
-        </form>
-        </div>
-        <div class="col-md-4 job-actions">
-        <form action="<%= u("remove/#{job.id}") %>" method="post"><%= csrf_token_tag %>
-        <button type="submit" value="Remove" class="btn btn-danger">Remove</button>
-        </form>
-        </div>
-        <div class="col-md-4 job-actions">
-        <form action="<%= u("reload/#{job.id}") %>" method="post"><%= csrf_token_tag %>
-        <button type="submit" value="Reload" class="btn btn-default">Reload</button>
-        </form>
-        </div>
-      </div>
-    </dd>
-    <dt>Priority</dt>
+      
+    </dd> -->
+    <!-- <dt>Priority</dt>
     <dd><%=h job.priority %></dd>
     <dt>Attempts</dt>
-    <dd><%=h job.attempts %></dd>
-    <% if job.respond_to?(:queue) && job.queue %>
-      <dt>Queue</dt>
-      <dd><%=h job.queue %></dd>
-    <% end %>
+    <dd><%=h job.attempts %></dd> -->
+    
+    <!-- Only after this the actual Code Block begins -->
     <dt>Handler</dt>
     <dd>
     <pre><%=h job.handler %></pre>
