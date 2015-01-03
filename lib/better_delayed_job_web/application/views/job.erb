@@ -12,12 +12,12 @@
         </div>
         <div class="col-md-4 job-actions">
         <form action="<%= u("remove/#{job.id}") %>" method="post"><%= csrf_token_tag %>
-        <button type="submit" value="Remove" class="btn btn-primary">Remove</button>
+        <button type="submit" value="Remove" class="btn btn-danger">Remove</button>
         </form>
         </div>
         <div class="col-md-4 job-actions">
         <form action="<%= u("reload/#{job.id}") %>" method="post"><%= csrf_token_tag %>
-        <button type="submit" value="Reload" class="btn btn-primary">Reload</button>
+        <button type="submit" value="Reload" class="btn btn-default">Reload</button>
         </form>
         </div>
       </div>

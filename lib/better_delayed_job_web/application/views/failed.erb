@@ -3,14 +3,18 @@
   Here are the list of jobs that failed during execution.
 </p>
 <% if @jobs.any? %>
+<div class="col-md-6 job-actions">
   <form action="<%= u('failed/clear') %>" method="POST">
     <%= csrf_token_tag %>
-    <input type="submit" value="Clear Failed Jobs"></input>
+    <button type="submit" value="Clear Failed Jobs" class="btn btn-warning">Clear Jobs</button>
   </form>
+  </div>
+  <div class="col-md-6 job-actions">
   <form action="<%= u('requeue/all') %>" method="POST">
     <%= csrf_token_tag %>
-    <input type="submit" value="Retry Failed Jobs"></input>
+    <button type="submit" value="Retry Failed Jobs" class="btn btn-default">Retry Jobs</button>
   </form>
+  </div>
 <% end %>
 <p class="text-info">
   The list below contains all jobs that have a last_error message set.
