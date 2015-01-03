@@ -5,17 +5,21 @@
       <a name="<%= job.id %>"></a>
       <a href="#<%= job.id %>"><%=h job.id %></a>
       <div class="controls">
+      <div class="col-md-4 job-actions">
         <form action="<%= u("requeue/#{job.id}") %>" method="post"><%= csrf_token_tag %>
         <button type="submit" value="Retry" class="btn btn-primary">Retry</button>
         </form>
-        or
+        </div>
+        <div class="col-md-4 job-actions">
         <form action="<%= u("remove/#{job.id}") %>" method="post"><%= csrf_token_tag %>
         <button type="submit" value="Remove" class="btn btn-primary">Remove</button>
         </form>
-        or
+        </div>
+        <div class="col-md-4 job-actions">
         <form action="<%= u("reload/#{job.id}") %>" method="post"><%= csrf_token_tag %>
         <button type="submit" value="Reload" class="btn btn-primary">Reload</button>
         </form>
+        </div>
       </div>
     </dd>
     <dt>Priority</dt>
