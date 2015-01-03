@@ -4,24 +4,23 @@
 </p>
 <% if @jobs.any? %>
 <div class="col-md-6 job-actions">
-  <form action="<%= u('failed/clear') %>" method="POST">
-    <%= csrf_token_tag %>
-    <button type="submit" value="Clear Failed Jobs" class="btn btn-warning">Clear Jobs</button>
-  </form>
-  </div>
-  <div class="col-md-6 job-actions">
   <form action="<%= u('requeue/all') %>" method="POST">
     <%= csrf_token_tag %>
-    <button type="submit" value="Retry Failed Jobs" class="btn btn-default">Retry Jobs</button>
+    <button type="submit" value="Retry Failed Jobs" class="btn btn-primary">Retry All Jobs</button>
+  </form>
+  </div>
+<div class="col-md-6 job-actions">
+  <form action="<%= u('failed/clear') %>" method="POST">
+    <%= csrf_token_tag %>
+    <button type="submit" value="Clear Failed Jobs" class="btn btn-warning">Clear All Jobs</button>
   </form>
   </div>
 <% end %>
-<!-- <p class="text-info">
-  The list below contains all jobs that have a last_error message set.
-</p> -->
-<p class="sub">
+<div class="col-md-6">
+<h4>
   <%= "Showing #{start} to #{start + per_page} of #{@all_jobs.count} failed jobs." %>
-</p>
+</h4>
+</div>
 <ul class="failed job">
   <% @jobs.each do |job| %>
     <%= partial :job, {:job => job} %>
