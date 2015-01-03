@@ -5,9 +5,11 @@
 <p class="sub">
   The list below contains jobs currently being processed.
 </p>
-<p class="sub">
+<div class="job-stat">
+<h4>
   <%= "Showing #{start} to #{start + per_page} of #{@all_jobs.count} working jobs." %>
-</p>
+</h4>
+</div>
 <ul class="list-group">
   <% @jobs.each do |job| %>
     <%= partial :job, {:job => job} %>

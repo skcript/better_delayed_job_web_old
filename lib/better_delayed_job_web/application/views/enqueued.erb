@@ -2,9 +2,11 @@
 <p class="lead">
   The list below contains all jobs currently in the delayed_job queue.
 </p>
-<p class="sub">
+<div class="job-stat">
+<h4>
   <%= "Showing #{start} to #{start + per_page} of #{@all_jobs.count} enqueued jobs." %>
-</p>
+</h4>
+</div>
 <ul class="job">
   <% @jobs.each do |job| %>
     <%= partial :job, {:job => job} %>

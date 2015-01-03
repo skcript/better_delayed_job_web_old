@@ -31,7 +31,7 @@
   </tr>
   <% if job.respond_to?(:queue) && job.queue %>
   <tr class="failure">
-    <td class="status danger">
+    <td class="status">
       <a href="/delayed_job/failed">Queue</a>
     </td>
     <td class="status danger">

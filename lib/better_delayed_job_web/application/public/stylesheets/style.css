@@ -84,3 +84,8 @@ dt {
 .job-stat {
   text-align: center;
 }
+
+.failed-job-actions {
+  float: left;
+  padding-right: 20px;
+}

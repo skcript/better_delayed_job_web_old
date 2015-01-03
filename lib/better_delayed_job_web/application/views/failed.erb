@@ -3,17 +3,20 @@
   Here are the list of jobs that failed during execution.
 </p>
 <% if @jobs.any? %>
+<div class="failed-job-actions">
 <form action="<%= u('requeue/all') %>" method="POST">
   <%= csrf_token_tag %>
   <button type="submit" value="Retry Failed Jobs" class="btn btn-primary">Retry All Jobs</button>
 </form>
-
+</div>
+<div class="failed-job-actions">
 <form action="<%= u('failed/clear') %>" method="POST">
   <%= csrf_token_tag %>
   <button type="submit" value="Clear Failed Jobs" class="btn btn-warning">Clear All Jobs</button>
 </form>
+</div>
 <% end %>
-<div class="col-md-6 job-stat">
+<div class="job-stat">
 <h4>
   <%= "Showing #{start} to #{start + per_page} of #{@all_jobs.count} failed jobs." %>
 </h4>
