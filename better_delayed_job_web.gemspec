@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name        = "better_delayed_job_web"
-  gem.version     = "1.3.5"
+  gem.version     = "1.3.6"
   gem.author      = "Skcript"
   gem.email       = "bello@skcript.com"
   gem.homepage    = "https://github.com/skcript/better_delayed_job_web"
