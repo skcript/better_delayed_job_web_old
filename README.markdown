@@ -38,20 +38,20 @@ Add the following route to your application for accessing the interface,
 and retrying failed jobs.
 
 ```ruby
-match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+match "/delayed_job" => BetterDelayedJobWeb, :anchor => false, via: [:get, :post]
 ```
 
 You probably want to password protect the interface, an easy way is to add something like this your config.ru file
 
 ```ruby
 if Rails.env.production?
-  DelayedJobWeb.use Rack::Auth::Basic do |username, password|
+  BetterDelayedJobWeb.use Rack::Auth::Basic do |username, password|
     username == 'username' && password == 'password'
   end
 end
 ```
 
-`delayed_job_web` runs as a Sinatra application within the rails application. Visit it at `/delayed_job`.
+`better_delayed_job_web` runs as a Sinatra application within the rails application. Visit it at `/delayed_job`.
 
 ## Serving static assets
 
