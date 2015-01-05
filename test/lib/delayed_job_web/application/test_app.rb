@@ -1,13 +1,13 @@
 require 'test_helper'
 require 'support/delayed_job_fake'
-require 'delayed_job_web/application/app'
+require 'better_delayed_job_web/application/app'
 
-class TestDelayedJobWeb < MiniTest::Unit::TestCase
+class TestBetterDelayedJobWeb < MiniTest::Unit::TestCase
 
   include Rack::Test::Methods
 
   def app
-    DelayedJobWeb
+    BetterDelayedJobWeb
   end
 
   def test_requeue_all
