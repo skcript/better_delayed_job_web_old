@@ -29,6 +29,17 @@
       <%=h job.attempts %>
     </td>
   </tr>
+  <% if job.respond_to?(:progress_current) && job.respond_to?(:progress_max) %>
+    <tr>
+      <td class="status">
+        Progress
+      </td>
+      <td class="status">
+        <%=h job.progress_stage if job.respond_to?(:progress_stage)%>
+        (<%=h job.progress_current%>/<%=h job.progress_max%>)
+      </td>
+    </tr>
+  <% end %>
   <% if job.respond_to?(:queue) && job.queue %>
   <tr class="failure">
     <td class="status">
